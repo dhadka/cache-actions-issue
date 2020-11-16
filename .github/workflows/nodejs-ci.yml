@@ -35,6 +35,7 @@ jobs:
             ./nodejs
           key: nodejs-build-v2-${{ steps.nvm.outputs.nodeVersion }}
       - name: Debugging Pre-Build
+        if: steps.cache.outputs.cache-hit == 'true'
         run: |
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
