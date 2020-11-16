@@ -36,6 +36,11 @@ jobs:
           key: nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
           restore-keys: |
             nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
+      - name: Debugging
+        run: |
+          ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          cat /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
       - name: Build node.js
         working-directory: ./nodejs/
         run: |
