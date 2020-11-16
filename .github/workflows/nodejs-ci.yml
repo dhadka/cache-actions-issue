@@ -40,6 +40,8 @@ jobs:
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           uname -a
+          otool -L /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          nm /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
       - name: Build node.js
         working-directory: ./nodejs/
         run: |
