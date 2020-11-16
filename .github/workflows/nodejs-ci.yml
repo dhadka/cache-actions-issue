@@ -37,7 +37,7 @@ jobs:
         with:
           path: |
             ./nodejs
-          key: nodejs-build-v3-${{ steps.nvm.outputs.nodeVersion }}
+          key: nodejs-build-v4-${{ steps.nvm.outputs.nodeVersion }}
       - uses: actions/upload-artifact@v2
         if: steps.cache.outputs.cache-hit == 'true'
         with:
