@@ -33,7 +33,12 @@ jobs:
         with:
           path: |
             ./nodejs
-          key: nodejs-build-v2-${{ steps.nvm.outputs.nodeVersion }}
+          key: nodejs-build-v3-${{ steps.nvm.outputs.nodeVersion }}
+      - uses: actions/upload-artifact@v2
+        if: steps.cache.outputs.cache-hit == 'true'
+        with:
+          name: pre-build
+          path: /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
       - name: Debugging Pre-Build
         if: steps.cache.outputs.cache-hit == 'true'
         run: |
@@ -60,3 +65,7 @@ jobs:
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           uname -a
+      - uses: actions/upload-artifact@v2
+        with:
+          name: post-build
+          path: /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
