@@ -5,7 +5,7 @@ on:
     paths:
       - '*'
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -39,8 +39,8 @@ jobs:
       - name: Debugging
         run: |
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
-          file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
-          cat /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/
+          uname -a
       - name: Build node.js
         working-directory: ./nodejs/
         run: |
