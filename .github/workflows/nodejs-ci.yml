@@ -41,6 +41,9 @@ jobs:
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           uname -a
+          /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot -h
+          chmod +x /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot -h
       - name: Build node.js
         working-directory: ./nodejs/
         run: |
