@@ -36,14 +36,11 @@ jobs:
           key: nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
           restore-keys: |
             nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
-      - name: Debugging
+      - name: Debugging Pre-Build
         run: |
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
           uname -a
-          /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot -h
-          chmod +x /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
-          /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot -h
       - name: Build node.js
         working-directory: ./nodejs/
         run: |
@@ -57,3 +54,8 @@ jobs:
           configure_args=("--without-npm" "--without-inspector")
           ./configure "${configure_args[@]}"
           make "${mkargs[@]}"
+      - name: Debugging Post-Build
+        run: |
+          ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          file /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
+          uname -a
