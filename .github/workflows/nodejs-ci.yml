@@ -33,9 +33,7 @@ jobs:
         with:
           path: |
             ./nodejs
-          key: nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
-          restore-keys: |
-            nodejs-build-${{ steps.nvm.outputs.nodeVersion }}
+          key: nodejs-build-v2-${{ steps.nvm.outputs.nodeVersion }}
       - name: Debugging Pre-Build
         run: |
           ls -al /Users/runner/work/cache-actions-issue/cache-actions-issue/nodejs/out/Release/mksnapshot
